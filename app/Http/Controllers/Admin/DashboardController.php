@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Employee;
 use App\Models\Province;
 use App\Models\SystemConfiguration;
 use GuzzleHttp\Psr7\Response;
@@ -28,9 +29,9 @@ class DashboardController extends Controller
     {
         $pageTitle = 'Daftar Pegawai';
 
-        $systemConf = SystemConfiguration::first();
+        $employees = Employee::all();
         // $json = compact('cities');
         // dd(response()->json($json));
-        return view('dashboard-admin.employees.index', compact('pageTitle', 'systemConf'));
+        return view('dashboard-admin.employees.index', compact('pageTitle', 'employees'));
     }
 }

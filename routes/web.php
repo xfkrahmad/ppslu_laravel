@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\SystemConfigurationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Public\AboutController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\NewsController;
+use App\Models\Employee;
 use App\Models\SystemConfiguration;
 use Illuminate\Support\Facades\Route;
 
@@ -32,13 +34,6 @@ Route::name('public.')->group(function () {
     Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 });
 
-Route::get('/h', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->name('dashboard.admin.')->prefix('dashboard/admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile');
@@ -49,6 +44,11 @@ Route::middleware('auth')->name('dashboard.admin.')->prefix('dashboard/admin')->
     Route::patch('/system', [SystemConfigurationController::class, 'update'])->name('system.update');
 
     Route::get('/employees', [DashboardController::class, 'showEmployees'])->name('employees');
+    Route::get('/employees-create', [EmployeeController::class, 'create'])->name('employees.create');
+    Route::post('/employees-create', [EmployeeController::class, 'store'])->name('employees.store');
+    Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+    Route::patch('/employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
+    Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
 });
 
 require __DIR__ . '/auth.php';

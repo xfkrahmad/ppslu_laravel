@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\SystemConfiguration;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -12,6 +13,7 @@ class GuestLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.guest');
+        $systemConf = SystemConfiguration::select('institute_photo_url', 'institute_name', 'institute_facebook_url')->first();
+        return view('layouts.guest', compact('systemConf'));
     }
 }

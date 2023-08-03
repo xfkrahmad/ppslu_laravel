@@ -1,9 +1,9 @@
-                    <aside class="py-6 lg:col-span-3 hidden sm:flex">
+                    <aside class="py-6 lg:col-span-3 hidden lg:flex">
                         <nav class="space-y-1">
                             <a href="{{ route('dashboard.admin.system') }}"
-                                class="{{ Route::currentRouteName() == 'dashboard.admin.system' ? 'bg-teal-50 border-teal-500 text-teal-700 hover:bg-teal-50 hover:text-teal-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium"' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium' }}"
+                                class="{{ Str::startsWith(Route::currentRouteName(), 'dashboard.admin.system') ? 'bg-teal-50 border-teal-500 text-teal-700 hover:bg-teal-50 hover:text-teal-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium"' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium' }}"
                                 aria-current="page">
-                                <svg class="{{ Route::currentRouteName() == 'dashboard.admin.system' ? 'text-teal-500 group-hover:text-teal-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' : 'text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' }}"
+                                <svg class="{{ Str::startsWith(Route::currentRouteName(), 'dashboard.admin.system') ? 'text-teal-500 group-hover:text-teal-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' : 'text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' }}"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -13,14 +13,14 @@
                             </a>
 
                             <a href="{{ route('dashboard.admin.employees') }}"
-                                class="{{ Route::currentRouteName() == 'dashboard.admin.employees' ? 'bg-teal-50 border-teal-500 text-teal-700 hover:bg-teal-50 hover:text-teal-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium"' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium' }}">
-                                <svg class="{{ Route::currentRouteName() == 'dashboard.admin.employees' ? 'text-teal-500 group-hover:text-teal-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' : 'text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' }}"
+                                class="{{ Str::startsWith(Route::currentRouteName(), 'dashboard.admin.employees') ? 'bg-teal-50 border-teal-500 text-teal-700 hover:bg-teal-50 hover:text-teal-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium"' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium' }}">
+                                <svg class="{{ Str::startsWith(Route::currentRouteName(), 'dashboard.admin.employees') ? 'text-teal-500 group-hover:text-teal-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' : 'text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6' }}"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                <span class="truncate">Account</span>
+                                <span class="truncate">Pegawai</span>
                             </a>
 
                             <a href="#"
