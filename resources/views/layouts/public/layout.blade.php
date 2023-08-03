@@ -34,14 +34,21 @@
 </head>
 
 <body class="">
-    @include('layouts.public.header')
+    <x-public.header />
 
     <!-- Page Content -->
     <main>
+
+        @if (!request()->is('/'))
+            <!-- breadcrumb start-->
+            <x-public.breadcrumb :breadcrumbTitle="$breadcrumbTitle" />
+            <!-- breadcrumb start-->
+        @endif
+
         {{ $slot }}
     </main>
 
-    @include('layouts.public.footer')
+    <x-public.footer />
 
     <script src="{{ asset('js/jquery-1.12.1.min.js') }}"></script>
     <!-- popper js -->

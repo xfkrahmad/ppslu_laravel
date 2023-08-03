@@ -1,22 +1,4 @@
-<x-public-layout>
-    <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner text-center">
-                        <div class="breadcrumb_iner_item">
-                            <h2>PPSLU Sudagaran Dalam Berita</h2>
-                            <p>Home<span>/</span>Blog</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb start-->
-
-
+<x-public-layout :breadcrumbTitle="$breadcrumbTitle">
     <!--================Blog Area =================-->
     <section class="blog_area section_padding">
         <div class="container">

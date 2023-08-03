@@ -9,6 +9,9 @@ class AboutController extends Controller
 {
     public function show()
     {
-        return view('public.about');
+        $data = [
+            'breadcrumbTitle' => 'Tentang Kami',
+        ];
+        return view('public.about')->with($data);
     }
 }

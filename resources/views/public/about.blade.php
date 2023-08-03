@@ -1,24 +1,4 @@
-<x-public-layout>
-    <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner text-center">
-                        <div class="breadcrumb_iner_item">
-                            <h2>Tentang Kita</h2>
-                            <p>Home<span>/</span>Tentang Kita</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb start-->
-
-    <!-- feature_part start-->
-
-    <!-- learning part end-->
+<x-public-layout :breadcrumbTitle="$breadcrumbTitle">
 
     <!-- member_counter counter start -->
     <section class="member_counter">

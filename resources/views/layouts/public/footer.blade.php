@@ -57,18 +57,19 @@
 
                             <div class="col-lg-12">
                                 <div class="flex justify-center items-center gap-x-4 text-[24px]">
-                                    <a href="#"> <i class="ti-facebook"></i> </a>
-                                    <a href="#"> <i class="ti-twitter-alt"></i> </a>
-                                    <a href="#"> <i class="ti-instagram"></i> </a>
-                                    <a href="#"> <i class="ti-skype"></i> </a>
+                                    <a href="{{ $systemConf->institute_facebook_url }}"> <i class="ti-facebook"></i> </a>
+                                    <a href="{{ $systemConf->institute_twitter_url }}"> <i class="ti-twitter-alt"></i>
+                                    </a>
+                                    <a href="{{ $systemConf->institute_instagram_url }}"> <i class="ti-instagram"></i>
+                                    </a>
                                 </div>
                                 <p class="footer-text m-0">
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-                                    </script> All rights reserved | Dikelola Oleh Panti Pelayanan Sosial
-                                    Lanjut Usia "Sudagaran" Banyumas
+                                    </script> All rights reserved | Dikelola Oleh
+                                    {{ $systemConf->institute_name_detail }}
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
                             </div>

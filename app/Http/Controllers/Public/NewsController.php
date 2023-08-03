@@ -9,6 +9,15 @@ class NewsController extends Controller
 {
     public function show()
     {
-        return view('public.news.index-news', []);
+
+        $data = [
+            'breadcrumbTitle' => 'PPSLU Sudagaran Dalam Berita',
+        ];
+        return view('public.news.index-news')->with($data);
+    }
+
+    public function showNewsById($id)
+    {
+        return view('public.news.', ['id' => $id]);
     }
 }

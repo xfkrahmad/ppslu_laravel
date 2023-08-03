@@ -5,20 +5,13 @@
                 <div class="col-lg-6 col-xl-6">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <p><i>
-                                    <h1>Selamat Datang
-                                </i></p>
-                            <p>
-                            <h2>Di PPSLU Sudagaran Banyumas</h2>
-                            </p>
-                            <p>
-                            <h2>Dinas Sosial Provinsi Jawa Tengah</h2>
-                            </p>
-                            <p>Unit Pelaksana Teknis Dinas Sosial Provinsi Jawa Tengah
-                                Yang Memiliki Tugas dan Fungsi Memberikan Pelayanan Kesejahteraan Sosial Kepada
-                            <p>PM (Penerima Manfaat)
-                                Lanjut Usia Terlantar</p>
-                            </p>
+                            <h1 class="font-italic font-bold">Selamat Datang
+                                <h2 class="text-2xl font-bold">Di {{ $systemConf->institute_name }}</h2>
+                                <h2 class="text-2xl font-bold">Dinas Sosial Provinsi
+                                    {{ $systemConf->province_name }}
+                                </h2>
+                                <h3 class="mt-4 text-lg text-gray-500">{{ $systemConf->institute_description }}</h3>
+                                </h3>
                         </div>
                     </div>
                 </div>
