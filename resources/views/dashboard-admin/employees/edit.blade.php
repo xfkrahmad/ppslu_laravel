@@ -20,7 +20,7 @@
 
                         <input type="text" name="nip" id="nip" autocomplete="nip"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm {{ $errors->has('nip') ? 'border-red-300' : '' }}"
-                            value="{{ $employee->nip }}">
+                            value="{{ old('nip', $employee->nip) }}">
 
                     </div>
                 </div>
@@ -32,7 +32,7 @@
 
                         <input type="text" name="name" id="name" autocomplete="name"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('name') ? 'border-red-300' : '' }}"
-                            value="{{ $employee->name }}">
+                            value="{{ old('name', $employee->name) }}">
                     </div>
                 </div>
 
@@ -43,14 +43,14 @@
                         <x-input-error :messages="$errors->get('title_name')" class="mt-2" />
                         <input type="text" name="title_name" id="title_name" autocomplete="name"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('title_name') ? 'border-red-300' : '' }}"
-                            value="{{ $employee->title_name }}">
+                            value="{{ old('title_name', $employee->title_name) }}">
                     </div>
                     <div class="col-span-12 sm:col-span-6">
                         <label for="position_name" class="block text-sm font-medium text-gray-700">Jabatan</label>
                         <x-input-error :messages="$errors->get('position_name')" class="mt-2" />
                         <input type="text" name="position_name" id="position_name" autocomplete="position_name"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('name') ? 'border-red-300' : '' }}"
-                            value="{{ $employee->position_name }}">
+                            value="{{ old('position_name', $employee->position_name) }}">
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
                     <x-input-error :messages="$errors->get('motto_description')" class="mt-2" />
                     <div class="mt-1">
                         <textarea id="motto_description" name="motto_description" rows="3"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('motto_description') ? 'border-red-300' : '' }}">{{ $employee->motto_description }}</textarea>
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('motto_description') ? 'border-red-300' : '' }}">{{ old('motto_description', $employee->motto_description) }}</textarea>
                     </div>
                 </div>
                 <!-- Status Kepegawaian -->
@@ -90,6 +90,7 @@
             <!-- Foto Upload -->
             <div class="mt-6 flex-grow lg:mt-0 lg:ml-6 lg:flex-shrink-0 lg:flex-grow-0">
                 <p class="text-sm font-medium text-gray-700 lg:ml-12" aria-hidden="true">Foto Pegawai</p>
+                <x-input-error :messages="$errors->get('photo_url')" class="mt-2" />
                 <div class="mt-1 lg:hidden">
                     <div class="flex items-center">
                         <div class="inline-block h-12 w-12 flex-shrink-0 overflow-hidden rounded-full"
@@ -106,7 +107,6 @@
                                     <span>Ubah Foto</span>
                                     <span class="sr-only"> user photo</span>
                                 </label>
-                                <x-input-error :messages="$errors->get('institute_name')" class="mt-2" />
                                 <input id="photo_url" name="photo_url" type="file"
                                     class="absolute h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0"
                                     {{ $errors->has('photo_url') ? 'border-red-300' : '' }}>

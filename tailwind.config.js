@@ -24,5 +24,5 @@ export default {
     },
     blocklist: ["collapse"],
 
-    plugins: [forms],
+    plugins: [forms, require("@tailwindcss/forms")],
 };

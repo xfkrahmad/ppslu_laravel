@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\NewsController as NewsControllerAdmin;
 use App\Http\Controllers\Admin\SystemConfigurationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Public\AboutController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\HomeController;
-use App\Http\Controllers\Public\NewsController;
+use App\Http\Controllers\Public\NewsController as NewsControllerPublic;
 use App\Models\Employee;
 use App\Models\SystemConfiguration;
 use Illuminate\Support\Facades\Route;
@@ -28,8 +29,8 @@ Route::name('public.')->group(function () {
     Route::get('/', [HomeController::class, 'show'])->name('index');
     Route::get('/about', [AboutController::class, 'show'])->name('about');
 
-    Route::get('/news', [NewsController::class, 'show'])->name('news');
-    Route::get('/news/{id}', [NewsController::class, 'showNewsById'])->name('news-detail');
+    Route::get('/news', [NewsControllerPublic::class, 'show'])->name('news');
+    Route::get('/news/{news:slug}', [NewsControllerPublic::class, 'showNewsById'])->name('news.detail');
 
     Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 });
@@ -49,6 +50,13 @@ Route::middleware('auth')->name('dashboard.admin.')->prefix('dashboard/admin')->
     Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
     Route::patch('/employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
     Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+
+    Route::get('/news', [DashboardController::class, 'showNews'])->name('news');
+    Route::get('/news-create', [NewsControllerAdmin::class, 'create'])->name('news.create');
+    Route::post('/news-create', [NewsControllerAdmin::class, 'store'])->name('news.store');
+    Route::get('/news/{news}/edit', [NewsControllerAdmin::class, 'edit'])->name('news.edit');
+    Route::patch('/news/{news}', [NewsControllerAdmin::class, 'update'])->name('news.update');
+    Route::delete('/news/{news}', [NewsControllerAdmin::class, 'destroy'])->name('news.destroy');
 });
 
 require __DIR__ . '/auth.php';

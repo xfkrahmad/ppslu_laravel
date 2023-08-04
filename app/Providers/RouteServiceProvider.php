@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\News;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -35,6 +36,18 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+        });
+        Route::model('news', News::class);
+        Route::bind('news', function ($value) {
+            // First, try to find the News model by slug
+            $news = News::where('slug', $value)->first();
+
+            // If not found by slug, try to find the News model by id
+            if (!$news) {
+                $news = News::findOrFail($value);
+            }
+
+            return $news;
         });
     }
 }

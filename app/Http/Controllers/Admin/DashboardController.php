@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Employee;
+use App\Models\News;
 use App\Models\Province;
 use App\Models\SystemConfiguration;
 use GuzzleHttp\Psr7\Response;
@@ -33,5 +34,15 @@ class DashboardController extends Controller
         // $json = compact('cities');
         // dd(response()->json($json));
         return view('dashboard-admin.employees.index', compact('pageTitle', 'employees'));
+    }
+
+    public function showNews()
+    {
+        $pageTitle = 'Daftar Berita';
+
+        $news = News::all();
+        // $json = compact('cities');
+        // dd(response()->json($json));
+        return view('dashboard-admin.news.index', compact('pageTitle', 'news'));
     }
 }

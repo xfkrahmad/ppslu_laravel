@@ -1,64 +1,46 @@
 <x-admin.layout :pageTitle="$pageTitle">
-    <form class="" action="{{ route('dashboard.admin.employees.store') }}" method="POST"
-        enctype="multipart/form-data">
+    <form class="" action="{{ route('dashboard.admin.news.store') }}" method="POST" enctype="multipart/form-data">
         @method('post')
         @csrf
         <div>
-            <h2 class="text-lg font-medium leading-6 text-gray-900">Tambah Pegawai Baru</h2>
-            <p class="mt-1 text-sm text-gray-500">Informasi ini berupa data pegawai yang akan ditambahkan</p>
+            <h2 class="text-lg font-medium leading-6 text-gray-900">Tambah Berita Baru</h2>
+            <p class="mt-1 text-sm text-gray-500">Informasi ini berupa data berita yang akan dirubah</p>
         </div>
-
         <div class="mt-6 flex flex-col lg:flex-row">
             <div class="flex-grow space-y-6">
                 <div>
-                    <label for="nip" class="block text-sm font-medium text-gray-700">NIP</label>
+                    <label for="title" class="block text-sm font-medium text-gray-700">Judul Berita</label>
 
-                    <x-input-error :messages="$errors->get('nip')" class="mt-2" />
+                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
 
                     <div class="mt-1 flex rounded-md shadow-sm">
 
-                        <input type="text" name="nip" id="nip" autocomplete="nip"
+                        <input type="text" name="title" id="title" autocomplete="title"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm {{ $errors->has('nip') ? 'border-red-300' : '' }}"
-                            value="{{ old('nip') }}">
+                            value="{{ old('title') }}">
 
                     </div>
                 </div>
 
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
-                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                    <label for="video_url" class="block text-sm font-medium text-gray-700">Link URL Youtube ( Jika Ada
+                        )</label>
+                    <x-input-error :messages="$errors->get('video_url')" class="mt-2" />
                     <div class="mt-1 flex rounded-md shadow-sm">
 
-                        <input type="text" name="name" id="name" autocomplete="name"
+                        <input type="text" video_url="video_url" id="video_url" autocomplete="video_url"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('name') ? 'border-red-300' : '' }}"
-                            value="{{ old('name') }}">
+                            value="{{ old('video_url') }}">
                     </div>
                 </div>
 
-                <div class="mt-6 grid grid-cols-12 gap-6">
-                    <div class="col-span-12 sm:col-span-6">
-                        <label for="title_name" class="block text-sm font-medium text-gray-700">
-                            Gelar</label>
-                        <x-input-error :messages="$errors->get('title_name')" class="mt-2" />
-                        <input type="text" name="title_name" id="title_name" autocomplete="name"
-                            class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('title_name') ? 'border-red-300' : '' }}"
-                            value="{{ old('title_name') }}">
-                    </div>
-                    <div class="col-span-12 sm:col-span-6">
-                        <label for="position_name" class="block text-sm font-medium text-gray-700">Jabatan</label>
-                        <x-input-error :messages="$errors->get('position_name')" class="mt-2" />
-                        <input type="text" name="position_name" id="position_name" autocomplete="position_name"
-                            class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('name') ? 'border-red-300' : '' }}"
-                            value="{{ old('position_name') }}">
-                    </div>
-                </div>
 
                 <div>
-                    <label for="motto_description" class="block text-sm font-medium text-gray-700">Motto</label>
-                    <x-input-error :messages="$errors->get('motto_description')" class="mt-2" />
+                    <label for="content" class="block text-sm font-medium text-gray-700">Konten</label>
+                    <x-input-error :messages="$errors->get('content')" class="mt-2" />
                     <div class="mt-1">
-                        <textarea id="motto_description" name="motto_description" rows="3"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('motto_description') ? 'border-red-300' : '' }}">{{ old('motto_description') }}</textarea>
+                        <textarea id="content" name="content"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('content') ? 'border-red-300' : '' }}">{{ old('content') }}</textarea>
                     </div>
                 </div>
                 <!-- Status Kepegawaian -->
@@ -88,7 +70,7 @@
             <!-- Foto Upload -->
             <!-- Foto Upload -->
             <div class="mt-6 flex-grow lg:mt-0 lg:ml-6 lg:flex-shrink-0 lg:flex-grow-0">
-                <p class="text-sm font-medium text-gray-700 lg:ml-12" aria-hidden="true">Foto Pegawai</p>
+                <p class="text-sm font-medium text-gray-700 lg:ml-12" aria-hidden="true">Foto Berita</p>
                 <x-input-error :messages="$errors->get('photo_url')" class="mt-2" />
                 <div class="mt-1 lg:hidden">
                     <div class="flex items-center">
@@ -173,6 +155,18 @@
                     previewImageDesktop.setAttribute('src', '');
                     previewImageDesktop.style.display = 'none';
                 }
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            tinymce.init({
+                selector: 'textarea',
+
+                /* TinyMCE configuration options */
+                plugins: "link lists placeholder",
+                toolbar: "undo redo | bold italic underline | bullist numlist | link",
             });
         });
     </script>

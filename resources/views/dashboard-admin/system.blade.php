@@ -20,7 +20,7 @@
 
                         <input type="text" name="institute_name" id="institute_name" autocomplete="institute_name"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm {{ $errors->has('institute_name') ? 'border-red-300' : '' }}"
-                            value="{{ $systemConf->institute_name }}">
+                            value="{{ old('institute_name', $systemConf->institute_name) }}">
 
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         <input type="text" name="institute_name_detail" id="institute_name_detail"
                             autocomplete="institute_name_detail"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('institute_name_detail') ? 'border-red-300' : '' }}"
-                            value="{{ $systemConf->institute_name_detail }}">
+                            value="{{ old('institute_name_detail', $systemConf->institute_name_detail) }}">
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                     <x-input-error :messages="$errors->get('institute_description')" class="mt-2" />
                     <div class="mt-1">
                         <textarea id="institute_description" name="institute_description" rows="3"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('institute_description') ? 'border-red-300' : '' }}">{{ $systemConf->institute_description }}</textarea>
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('institute_description') ? 'border-red-300' : '' }}">{{ old('institute_description', $systemConf->institute_description) }}</textarea>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                 <input type="url" name="institute_instagram_url" id="institute_instagram_url"
                     autocomplete="given-name"
                     class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm  {{ $errors->has('institute_instagram_url') ? 'border-red-300' : '' }}"
-                    value="{{ $systemConf->institute_instagram_url }}">
+                    value="{{ old('institute_instagram_url', $systemConf->institute_instagram_url) }}">
             </div>
 
             <div class="col-span-12 sm:col-span-6">
@@ -113,7 +113,7 @@
                 <input type="url" name="institute_facebook_url" id="institute_facebook_url"
                     autocomplete="family-name"
                     class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm  {{ $errors->has('institute_facebook_url') ? 'border-red-300' : '' }}"
-                    value="{{ $systemConf->institute_facebook_url }}">
+                    value="{{ old('institute_facebook_url', $systemConf->institute_facebook_url) }}">
             </div>
 
             <div class="col-span-12 sm:col-span-6">
@@ -121,7 +121,7 @@
                 <x-input-error :messages="$errors->get('institute_twitter_url')" class="mt-2" />
                 <input type="url" name="institute_twitter_url" id="institute_twitter_url"
                     class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm  {{ $errors->has('institute_twitter_url') ? 'border-red-300' : '' }}"
-                    value="{{ $systemConf->institute_twitter_url }}">
+                    value="{{ old('institute_twitter_url', $systemConf->institute_twitter_url) }}">
             </div>
 
             <div class="col-span-12 sm:col-span-6">
@@ -130,7 +130,7 @@
                 <x-input-error :messages="$errors->get('institute_phone')" class="mt-2" />
                 <input type="text" name="institute_phone" id="institute_phone" autocomplete="organization"
                     class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm  {{ $errors->has('institute_phone') ? 'border-red-300' : '' }}"
-                    value="{{ $systemConf->institute_phone }}">
+                    value="{{ old('institute_phone', $systemConf->institute_phone) }}">
             </div>
 
             <div class="col-span-12 sm:col-span-6">
@@ -138,7 +138,7 @@
                 <x-input-error :messages="$errors->get('institute_email')" class="mt-2" />
                 <input type="email" name="institute_email" id="institute_email" autocomplete="organization"
                     class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm {{ $errors->has('institute_email') ? 'border-red-300' : '' }}"
-                    value="{{ $systemConf->institute_email }}">
+                    value="{{ old('institute_email', $systemConf->institute_email) }}">
             </div>
         </div>
         <!--End Of Social Media section -->
@@ -156,7 +156,7 @@
                             <x-input-error :messages="$errors->get('institute_address')" class="mt-2" />
                             <div class="mt-1">
                                 <textarea id="institute_address" name="institute_address" rows="3"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm {{ $errors->has('institute_address') ? 'border-red-300' : '' }}">{{ $systemConf->institute_address }}</textarea>
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm {{ $errors->has('institute_address') ? 'border-red-300' : '' }}">{{ old('institute_address', $systemConf->institute_address) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                             <x-input-error :messages="$errors->get('institute_gmaps_url')" class="mt-2" />
                             <div class="mt-1">
                                 <textarea id="institute_gmaps_url" name="institute_gmaps_url" rows="3"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm {{ $errors->has('institute_gmaps_url') ? 'border-red-300' : '' }}">{{ $systemConf->institute_gmaps_url }}</textarea>
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm {{ $errors->has('institute_gmaps_url') ? 'border-red-300' : '' }}">{{ old('institute_gmaps_url', $systemConf->institute_gmaps_url) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                         <x-input-error :messages="$errors->get('province_id')" class="mt-2" />
                         <select class="w-1/2 lg:w-full" name="province_id" id=province_id">
                             @foreach ($provinces as $option)
-                                <option value="{{ $option->id }}" @if ($option->id == $systemConf->province_id) selected @endif>
+                                <option value="{{ $option->id }}" @if (old('province_id', $systemConf->province_id) == $option->id) selected @endif>
                                     {{ $option->province_name }}
                                 </option>
                             @endforeach
@@ -197,8 +197,7 @@
                         <x-input-error :messages="$errors->get('city_id')" class="mt-2" />
                         <select class="w-1/2 lg:w-full" name="city_id" id="city_id">
                             @foreach ($cities as $option)
-                                <option value="{{ $option->id }}"
-                                    {{ $option->id === $systemConf->city_id ? 'selected' : '' }}>
+                                <option value="{{ $option->id }}" @if (old('city_id', $systemConf->city_id) == $option->id) selected @endif>
                                     {{ $option->city_name }}
                                 </option>
                             @endforeach
@@ -210,7 +209,7 @@
                         <x-input-error :messages="$errors->get('postal_code')" class="mt-2" />
                         <input type="text" name="postal_code" id="postal_code" autocomplete="organization"
                             class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm {{ $errors->has('postal_code') ? 'border-red-300' : '' }}"
-                            value="{{ $systemConf->postal_code }}">
+                            value="{{ old('postal_code', $systemConf->postal_code) }}">
                     </div>
                 </div>
                 <!-- end Of Provinsi/Kota/Kode pos -->

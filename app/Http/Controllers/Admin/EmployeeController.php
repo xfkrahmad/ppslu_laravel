@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use DragonCode\Support\Facades\Filesystem\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -111,7 +112,12 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         if ($employee->photo_url) {
-            Storage::delete('public/' . $employee->photo_url);
+            $directoryPath =
+                $directoryPath = 'public/photos/employees/' . $employee->id;
+
+            if (Storage::exists($directoryPath)) {
+                Storage::deleteDirectory($directoryPath);
+            }
         }
         $employee->delete();
         Session::flash('successMsg', 'Pegawai Berhasil Dihapus.');

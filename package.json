@@ -16,8 +16,10 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@tailwindcss/line-clamp": "^0.4.4",
         "datatables.net-bs4": "^1.13.6",
         "sweetalert2": "^11.7.20",
+        "tinymce": "^6.6.1",
         "toastr": "^2.1.4"
     }
 }
