@@ -11,10 +11,9 @@
                         <div class="blog_details">
                             <h2 class="text-center">{{ $news->title }}</h2>
                             </h2>
-                            @if ($news->youtube_url)
-                                <iframe class="mx-auto" width="560" height="315"
-                                    src="https://www.youtube.com/embed/U4YYZTWJ_7c" title="YouTube video player"
-                                    frameborder="0"
+                            @if ($news->video_url)
+                                <iframe class="mx-auto" width="560" height="315" src="{{ $news->video_url }}"
+                                    title="YouTube video player" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
                             @endif
