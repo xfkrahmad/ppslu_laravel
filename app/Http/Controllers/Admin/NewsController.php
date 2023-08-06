@@ -74,7 +74,8 @@ class NewsController extends Controller
     {
         if ($request->hasFile('photo_url')) {
             if ($news->photo_url) {
-                Storage::delete('public/' . $news->photo_url);
+                if (Storage::exists('public/' . $news->photo_url))
+                    Storage::delete('public/' . $news->photo_url);
             }
             $photoPath = $request->file('photo_url')->store('photos/employees/' . $news->id, 'public'); // Save the photo to the 'public/photos' directory.
 

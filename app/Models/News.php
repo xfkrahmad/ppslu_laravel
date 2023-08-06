@@ -14,7 +14,10 @@ class News extends Model
 
     protected $guarded = ['id'];
     protected $table = 'news';
-
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

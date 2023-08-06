@@ -60,7 +60,8 @@ class SystemConfigurationController extends Controller
         if ($request->hasFile('user-photo')) {
             $modelInstance = SystemConfiguration::first();
             if ($modelInstance->institute_photo_url) {
-                Storage::delete('public/' . $modelInstance->institute_photo_url);
+                if (Storage::exists('public/' . $modelInstance->institute_photo_url))
+                    Storage::delete('public/' . $modelInstance->institute_photo_url);
             }
             $photoPath = $request->file('user-photo')->store('photos/logo', 'public'); // Save the photo to the 'public/photos' directory.
             $modelInstance->update([

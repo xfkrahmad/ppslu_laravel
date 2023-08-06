@@ -29,12 +29,14 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <!-- SweetAlert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-    <h1></h1>
+<body class="m-0">
     <x-public.header />
 
     <!-- Page Content -->

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\News;
+use App\Models\RegistrationApplication;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -41,6 +42,19 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('news', function ($value) {
             // First, try to find the News model by slug
             $news = News::where('slug', $value)->first();
+
+            // If not found by slug, try to find the News model by id
+            if (!$news) {
+                $news = News::findOrFail($value);
+            }
+
+            return $news;
+        });
+
+        Route::model('registerApplication', RegistrationApplication::class);
+        Route::bind('registerApplication', function ($value) {
+            // First, try to find the News model by slug
+            $news = RegistrationApplication::where('registration_number', $value)->first();
 
             // If not found by slug, try to find the News model by id
             if (!$news) {

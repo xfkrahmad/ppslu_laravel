@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Employee;
 use App\Models\News;
 use App\Models\Province;
+use App\Models\RegistrationApplication;
 use App\Models\SystemConfiguration;
 use GuzzleHttp\Psr7\Response;
 
@@ -44,5 +45,12 @@ class DashboardController extends Controller
         // $json = compact('cities');
         // dd(response()->json($json));
         return view('dashboard-admin.news.index', compact('pageTitle', 'news'));
+    }
+
+    public function showRegistrationApplication()
+    {
+        $pageTitle = 'Pengaturan Sistem Aplikasi';
+        $registrationApplications = RegistrationApplication::all();
+        return view('dashboard-admin.registration-application.index', compact('registrationApplications', 'pageTitle'));
     }
 }

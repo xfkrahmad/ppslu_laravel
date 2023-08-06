@@ -79,7 +79,8 @@ class EmployeeController extends Controller
 
         if ($request->hasFile('photo_url')) {
             if ($employee->photo_url) {
-                Storage::delete('public/' . $employee->photo_url);
+                if (Storage::exists('public/' . $employee->photo_url))
+                    Storage::delete('public/' . $employee->photo_url);
             }
             $photoPath = $request->file('photo_url')->store('photos/employees/' . $employee->id, 'public'); // Save the photo to the 'public/photos' directory.
 

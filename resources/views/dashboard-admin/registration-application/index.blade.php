@@ -1,12 +1,8 @@
 <x-admin.layout :pageTitle="$pageTitle">
     <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-            <h1 class="text-xl font-semibold text-gray-900">Daftar Berita</h1>
-            <p class="mt-2 text-sm text-gray-700">Daftar semua berita termasuk judul, foto berita, dan video berita</p>
-        </div>
-        <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <a class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
-                href="{{ route('dashboard.admin.news.create') }}">Tambah Berita</a>
+            <h1 class="text-xl font-semibold text-gray-900">Daftar Pendaftar</h1>
+
         </div>
     </div>
     <div class="mt-8 flex flex-col">
@@ -18,11 +14,11 @@
                             <tr>
                                 <th scope="col"
                                     class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
-                                    Nama Berita</th>
+                                    Nama Pelapor & nomor registrasi</th>
                                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                     Link Video</th>
                                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                    Status
+                                    Tanggal Pendaftaran
                                 </th>
                                 <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                     Tindakan
@@ -31,49 +27,37 @@
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
 
-                            @foreach ($news as $new)
+                            @foreach ($registrationApplications as $registrationApplication)
                                 <tr>
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                                         <div class="flex items-center">
                                             <div class="h-10 w-10 flex-shrink-0">
                                                 <img class="h-10 w-10 rounded-full"
-                                                    src="{{ asset('storage/' . $new->photo_url) }}" alt="">
+                                                    src="{{ asset('storage/' . $registrationApplication->elderly_photo_url) }}"
+                                                    alt="">
                                             </div>
                                             <div class="ml-4">
-                                                <div class="font-medium text-gray-900">{{ $new->title }}
+                                                <div class="font-medium text-gray-900">
+                                                    {{ $registrationApplication->reporter_name }}
                                                 </div>
-                                                <div class="text-gray-500">{{ $new->slug }}</div>
+                                                <div class="text-gray-500">
+                                                    {{ $registrationApplication->registration_number }}</div>
                                             </div>
                                         </div>
                                     </td>
 
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                        {{ $new->video_url }}</td>
+                                        {{ $registrationApplication->reporter_address }}</td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                        @if ($new->status == 1)
-                                            <span
-                                                class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Aktif</span>
-                                        @elseif ($new->status == 0)
-                                            <span
-                                                class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">Non
-                                                Aktif</span>
-                                        @endif
-                                    </td>
-                                    <td
-                                        class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <div class="flex justify-center items-center gap-x-7">
-                                            <form action="{{ route('dashboard.admin.news.destroy', $new) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="text-red-600 hover:text-red-900">Hapus</button>
-                                            </form>
-
-
-                                            <a href="{{ route('dashboard.admin.news.edit', $new) }}"
-                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <div class="font-medium text-gray-900">
+                                            {{ $registrationApplication->created_at }}
                                         </div>
+                                    </td>
+                                    <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-6">
+
+
+                                        <a href="{{ route('dashboard.admin.registration-application.show', $registrationApplication) }}"
+                                            class="text-indigo-600 hover:text-indigo-900" target="_blank">Detail</a>
                                     </td>
                                 </tr>
                             @endforeach

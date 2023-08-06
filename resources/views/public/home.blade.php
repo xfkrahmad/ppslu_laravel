@@ -18,4 +18,17 @@
             </div>
         </div>
     </section>
+    @if (Session::has('successMsg'))
+        <script>
+            const data = @json(Session::get('successMsg'));
+            console.log(data.messages);
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: data.messages,
+                    text: `Kode Registrasi ( Harap Dicatat ) : ${data.registrationNumber}`
+                });
+            });
+        </script>
+    @endif
 </x-public-layout>

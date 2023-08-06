@@ -29,8 +29,8 @@
                                         href={{ route('public.news') }}>Berita</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class=" {{ Route::currentRouteName() == 'public.' ? 'text-yellow-600 px-4' : 'nav-link' }}"
-                                        href="pendaftaran.html">Pendaftaran</a>
+                                    <a class=" {{ Route::currentRouteName() == 'public.registration-application' ? 'text-yellow-600 px-4' : 'nav-link' }}"
+                                        href="{{ route('public.registration-application') }}">Pendaftaran</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class=" {{ Route::currentRouteName() == 'public.contact' ? 'text-yellow-600 px-4' : 'nav-link' }}"

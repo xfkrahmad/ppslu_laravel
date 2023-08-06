@@ -3,12 +3,14 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\NewsController as NewsControllerAdmin;
+use App\Http\Controllers\Admin\RegistrationApplicationController as RegistrationApplicationControllerAdmin;
 use App\Http\Controllers\Admin\SystemConfigurationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Public\AboutController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\NewsController as NewsControllerPublic;
+use App\Http\Controllers\RegistrationApplicationController as RegistrationApplicationControllerPublic;
 use App\Models\Employee;
 use App\Models\SystemConfiguration;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +35,10 @@ Route::name('public.')->group(function () {
     Route::get('/news/{news:slug}', [NewsControllerPublic::class, 'showNewsById'])->name('news.detail');
 
     Route::get('/contact', [ContactController::class, 'show'])->name('contact');
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+    Route::get('/registration-application', [RegistrationApplicationControllerPublic::class, 'index'])->name('registration-application');
+    Route::post('/registration-application', [RegistrationApplicationControllerPublic::class, 'store'])->name('registration-application.store');
 });
 
 
@@ -57,6 +63,11 @@ Route::middleware('auth')->name('dashboard.admin.')->prefix('dashboard/admin')->
     Route::get('/news/{news}/edit', [NewsControllerAdmin::class, 'edit'])->name('news.edit');
     Route::patch('/news/{news}', [NewsControllerAdmin::class, 'update'])->name('news.update');
     Route::delete('/news/{news}', [NewsControllerAdmin::class, 'destroy'])->name('news.destroy');
+
+
+    Route::get('/registeration-application', [DashboardController::class, 'showRegistrationApplication'])->name('registration-application');
+
+    Route::get('/registeration-application/{registerApplication:registration_number}/show', [RegistrationApplicationControllerAdmin::class, 'show'])->name('registration-application.show');
 });
 
 require __DIR__ . '/auth.php';

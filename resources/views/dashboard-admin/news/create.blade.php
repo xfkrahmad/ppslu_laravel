@@ -28,7 +28,7 @@
                     <x-input-error :messages="$errors->get('video_url')" class="mt-2" />
                     <div class="mt-1 flex rounded-md shadow-sm">
 
-                        <input type="text" video_url="video_url" id="video_url" autocomplete="video_url"
+                        <input type="text" name="video_url" id="video_url" autocomplete="video_url"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('name') ? 'border-red-300' : '' }}"
                             value="{{ old('video_url') }}">
                     </div>
@@ -39,8 +39,7 @@
                     <label for="content" class="block text-sm font-medium text-gray-700">Konten</label>
                     <x-input-error :messages="$errors->get('content')" class="mt-2" />
                     <div class="mt-1">
-                        <textarea id="content" name="content"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('content') ? 'border-red-300' : '' }}">{{ old('content') }}</textarea>
+                        <textarea id="content" name="content">{{ old('content') }}</textarea>
                     </div>
                 </div>
                 <!-- Status Kepegawaian -->

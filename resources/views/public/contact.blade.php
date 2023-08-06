@@ -18,36 +18,45 @@
                     <h2 class="contact-title text-center">Anda Bertanya Kami Menjawab</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
-                        novalidate="novalidate">
+                    <form class="form-contact contact_form" action="{{ route('public.contact.store') }}" method="post"
+                        id="contactForm" novalidate="novalidate">
+                        @csrf
+                        @method('post')
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-
-                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder='Enter Message'></textarea>
+                                    <x-input-error :messages="$errors->get('content')" class="mt-2" />
+                                    <textarea id="content" name="content">{{ old('content') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="name" id="name" type="text"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
-                                        placeholder='Enter your name'>
+                                    <x-input-error :messages="$errors->get('sender')" class="mt-2" />
+                                    <input
+                                        class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('sender') ? 'border-red-300' : '' }}"
+                                        name="sender" id="sender" type="text" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Masukkan nama...'" placeholder='Masukkan nama...'
+                                        value="{{ old('sender') }}">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="email" id="email" type="email"
-                                        onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Enter email address'"
-                                        placeholder='Enter email address'>
+                                    <x-input-error :messages="$errors->get('sender_email')" class="mt-2" />
+                                    <input
+                                        class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('sender_email') ? 'border-red-300' : '' }}"
+                                        name="sender_email" id="sender_email" type="email"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukkan Email...'"
+                                        placeholder='Masukkan Email...' value="{{ old('sender_email') }}">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="subject" id="subject" type="text"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
-                                        placeholder='Enter Subject'>
+                                    <x-input-error :messages="$errors->get('subject')" class="mt-2" />
+                                    <input
+                                        class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('subject') ? 'border-red-300' : '' }}"
+                                        name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Masukkan Subject...'"
+                                        placeholder='Masukkan Subject...' value="{{ old('subject') }}">
                                 </div>
                             </div>
                         </div>
@@ -87,5 +96,28 @@
             </div>
         </div>
     </section>
-    <!-- ================ contact section end ================= -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            tinymce.init({
+                selector: 'textarea',
+
+                /* TinyMCE configuration options */
+                plugins: "link lists placeholder",
+                toolbar: "undo redo | bold italic underline | bullist numlist | link",
+                placeholder: "Masukkan pesanmu disini...",
+            });
+        });
+    </script>
+
+    @if (Session::has('successMsg'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: '{{ Session::get('successMsg') }}',
+                });
+            });
+        </script>
+    @endif
+
 </x-public-layout>

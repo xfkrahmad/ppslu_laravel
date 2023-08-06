@@ -30,9 +30,10 @@
                     <x-input-error :messages="$errors->get('video_url')" class="mt-2" />
                     <div class="mt-1 flex rounded-md shadow-sm">
 
-                        <input type="text" video_url="video_url" id="video_url" autocomplete="video_url"
+                        <input type="text" name="video_url" video_url="video_url" id="video_url"
+                            autocomplete="video_url"
                             class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm  {{ $errors->has('name') ? 'border-red-300' : '' }}"
-                            value="{{ old('video_url'), $news->video_url }}">
+                            value="{{ old('video_url', $news->video_url) }}">
                     </div>
                 </div>
 
