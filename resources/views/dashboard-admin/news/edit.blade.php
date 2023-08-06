@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="relative hidden overflow-hidden rounded-full lg:block">
-                    <img class="relative h-40 w-40 rounded-full" src="{{ asset('img/default_profile.jpg') }}"
+                    <img class="relative h-40 w-40 rounded-full" src="{{ asset('storage/' . $news->photo_url) }}"
                         alt="" id="previewImageMobile">
                     <label for="photo_url"
                         class="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100">
