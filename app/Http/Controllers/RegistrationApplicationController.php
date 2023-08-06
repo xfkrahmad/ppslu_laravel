@@ -7,6 +7,7 @@ use App\Http\Requests\StoreRegistrationApplicationRequest;
 use App\Http\Requests\UpdateRegistrationApplicationRequest;
 use App\Mail\RegistrationApplicationMail;
 use App\Models\SystemConfiguration;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -54,7 +55,7 @@ class RegistrationApplicationController extends Controller
                 'elderly_nik_number' => $request->elderly_nik_number,
                 'elderly_kk_number' => $request->elderly_kk_number,
                 'elderly_kis_number' => $request->elderly_kis_number,
-                'elderly_date_born' => $request->elderly_date_born,
+                'elderly_date_born' => Carbon::createFromFormat('m/d/Y', $request->elderly_date_born),
                 'elderly_religion_name' => $request->elderly_religion_name,
                 'elderly_address' => $request->elderly_address,
                 'elderly_domicile' => $request->elderly_domicile,
