@@ -52,9 +52,9 @@
                     <input type="hidden" name="status" x-bind:value="isActive ? '1' : '0'">
                     <span class="flex flex-grow flex-col">
                         <span class="text-sm font-medium text-gray-900" id="availability-label">Status
-                            Kepegawaian</span>
+                            Berita</span>
                         <span class="text-sm text-gray-500" id="availability-description">
-                            Status pegawai menandakan apabila pegawai tersebut masih bekerja atau tidak
+                            Jika status berita aktif, maka berita akan ditampilkan di halaman utama
                         </span>
                     </span>
                     <button @click="isActive = !isActive"
@@ -79,7 +79,7 @@
                     <div class="flex items-center">
                         <div class="inline-block h-12 w-12 flex-shrink-0 overflow-hidden rounded-full"
                             aria-hidden="true">
-                            <img class="h-full w-full rounded-full" src="{{ asset('img/default_profile.jpg') }}"
+                            <img class="h-full w-full rounded-full" src="{{ asset('storage/' . $news->photo_url) }}"
                                 alt="" id="previewImageDesktop">
                         </div>
                         <div class="ml-5 rounded-md shadow-sm">

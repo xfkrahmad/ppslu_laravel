@@ -20,6 +20,7 @@ class NewsController extends Controller
     {
         $breadcrumbTitle = $news->title;
         $randomNews = News::whereNotIn('id', [$news->id])->inRandomOrdeR()->take(2)->get();
-        return view('public.news.detail', compact('breadcrumbTitle', 'news', 'randomNews'));
+        $countNews = News::count();
+        return view('public.news.detail', compact('breadcrumbTitle', 'news', 'randomNews', 'countNews'));
     }
 }

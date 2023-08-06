@@ -48,9 +48,9 @@
                     <input type="hidden" name="status" x-bind:value="isActive ? '1' : '0'">
                     <span class="flex flex-grow flex-col">
                         <span class="text-sm font-medium text-gray-900" id="availability-label">Status
-                            Kepegawaian</span>
+                            Berita</span>
                         <span class="text-sm text-gray-500" id="availability-description">
-                            Status pegawai menandakan apabila pegawai tersebut masih bekerja atau tidak
+                            Jika status berita aktif, maka berita akan ditampilkan di halaman utama
                         </span>
                     </span>
                     <button @click="isActive = !isActive"
