@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="single_member_counter">
-                        <span class="counter">0</span>
+                        <span class="counter">{{ $totalBenefit->people_get_benefit_count }}</span>
                         <h4>Penerima Manfaat</h4>
                     </div>
                 </div>

@@ -211,6 +211,16 @@
                             class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm {{ $errors->has('postal_code') ? 'border-red-300' : '' }}"
                             value="{{ old('postal_code', $systemConf->postal_code) }}">
                     </div>
+
+                    <div class="col-span-12 sm:col-span-6">
+                        <label for="people_get_benefit_count" class="block text-sm font-medium text-gray-700">Penerima
+                            Manfaat</label>
+                        <x-input-error :messages="$errors->get('people_get_benefit_count')" class="mt-2" />
+                        <input type="number" name="people_get_benefit_count" id="people_get_benefit_count"
+                            autocomplete="organization"
+                            class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm {{ $errors->has('people_get_benefit_count') ? 'border-red-300' : '' }}"
+                            value="{{ old('people_get_benefit_count', $systemConf->people_get_benefit_count) }}">
+                    </div>
                 </div>
                 <!-- end Of Provinsi/Kota/Kode pos -->
             </div>

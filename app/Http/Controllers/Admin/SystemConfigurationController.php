@@ -75,6 +75,7 @@ class SystemConfigurationController extends Controller
                 'institute_phone' => $request->institute_phone,
                 'institute_email' => $request->institute_email,
                 'institute_address' => $request->institute_address,
+                'people_get_benefit_count' => $request->people_get_benefit_count,
                 'province_id' => $request->province_id,
                 'city_id' => $request->city_id,
                 'postal_code' => $request->postal_code
@@ -91,6 +92,7 @@ class SystemConfigurationController extends Controller
                 'institute_phone' => $request->institute_phone,
                 'institute_email' => $request->institute_email,
                 'institute_address' => $request->institute_address,
+                'people_get_benefit_count' => $request->people_get_benefit_count,
                 'province_id' => $request->province_id,
                 'city_id' => $request->city_id,
                 'postal_code' => $request->postal_code

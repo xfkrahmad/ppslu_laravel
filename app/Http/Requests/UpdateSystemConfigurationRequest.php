@@ -33,6 +33,16 @@ class UpdateSystemConfigurationRequest extends FormRequest
             'institute_phone' => 'required|regex:/^(\+\d{1,3}\s?)?(\(\d{1,5}\))?[\s\d\-]+$/',
             'institute_email' => 'required|email',
             'institute_address' => 'required|string',
+            'people_get_benefit_count' =>
+            [
+                'required',
+                'numeric',
+                function ($attribute, $value, $fail) {
+                    if ($value <= 0) {
+                        $fail("Jumlah harus lebih besar dari 0");
+                    }
+                },
+            ],
             'province_id'
             => [
                 'required',
@@ -62,6 +72,8 @@ class UpdateSystemConfigurationRequest extends FormRequest
             'institute_instagram_url.url' => 'sepertinya bukan sebuah URL.',
             'institute_twitter_url.required' => 'Twitter wajib diisi.',
             'institute_twitter_url.url' => 'sepertinya bukan sebuah URL.',
+            'people_get_benefit_count.required' => 'Harap isi jumlah penerima manfaat',
+            'people_get_benefit_count.numeric' => 'Jumlah harus angka',
             'province_id.required' => 'Provinsi wajib diisi.',
             'city_id.required' => 'Kota wajib diisi.',
             'city_id.exists' => 'Kota tersebut bukan merupakan bagian dari Provinsi yang dipilih',
